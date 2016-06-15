@@ -52,52 +52,10 @@ public class RoshamboApp {
 		System.out.println(ai.getName() + ": " + ai.getRps());
 
 		// call method to determine winner, loser or draw
-		result(user, ai);
+		Roshambo.result(user, ai);
 
 		if (InputCheck.cont(sc, "\nAnother round? (y/n): ", ""))
 			playRound(user, ai);
-	}
-
-	public static void result(RpsUser user, Player ai) {
-		//print the result that coincides with the user and ai choices, keep track of win draw loss for user
-		switch (user.getRps()) {
-		case Rock:
-			if (ai.getRps() == Roshambo.Rock) {
-				user.draw();
-				System.out.println("Draw!");
-			} else if (ai.getRps() == Roshambo.Paper) {
-				user.loss();
-				System.out.println(ai.getName() + " wins!");
-			} else if (ai.getRps() == Roshambo.Scissors) {
-				user.win();
-				System.out.println(user.getName() + " wins!");
-			}
-			break;
-		case Paper:
-			if (ai.getRps() == Roshambo.Rock) {
-				user.win();
-				System.out.println(user.getName() + " wins!");
-			} else if (ai.getRps() == Roshambo.Paper) {
-				user.draw();
-				System.out.println("Draw!");
-			} else if (ai.getRps() == Roshambo.Scissors) {
-				user.loss();
-				System.out.println(ai.getName() + " wins!");
-			}
-			break;
-		case Scissors:
-			if (ai.getRps() == Roshambo.Rock) {
-				user.loss();
-				System.out.println(ai.getName() + " wins!");
-			} else if (ai.getRps() == Roshambo.Paper) {
-				user.win();
-				System.out.println(user.getName() + " wins!");
-			} else if (ai.getRps() == Roshambo.Scissors) {
-				user.draw();
-				System.out.println("Draw!");
-			}
-			break;
-		}
 	}
 
 	public static char getChoice() {
@@ -105,7 +63,7 @@ public class RoshamboApp {
 		char rpsChoice = ' ';
 		boolean validChoice = false;
 		while (!validChoice) {
-			System.out.print("\nRock, paper or scissors? (R/P/S): ");
+			System.out.print("Rock, paper or scissors? (R/P/S): ");
 			rpsChoice = sc.next().toUpperCase().charAt(0);
 			sc.nextLine(); // garbage
 			if (rpsChoice == 'R' || rpsChoice == 'P' || rpsChoice == 'S')
