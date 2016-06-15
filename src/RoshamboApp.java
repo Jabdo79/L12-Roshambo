@@ -25,10 +25,10 @@ public class RoshamboApp {
 			// play against the ai chosen
 			switch (aiChoice) {
 			case 1:
-				playRound(user, fred);
+				Roshambo.playRound(sc, user, fred);
 				break;
 			case 2:
-				playRound(user, rand);
+				Roshambo.playRound(sc, user, rand);
 				break;
 			}
 
@@ -39,38 +39,5 @@ public class RoshamboApp {
 		}
 
 		sc.close();
-	}
-
-	public static void playRound(RpsUser user, Player ai) {
-
-		// store user and ai RPS choice
-		user.generateRoshambo(getChoice());
-		ai.generateRoshambo(' ');
-
-		// prints player names and their RPS choices
-		System.out.println("\n" + user.getName() + ": " + user.getRps());
-		System.out.println(ai.getName() + ": " + ai.getRps());
-
-		// call method to determine winner, loser or draw
-		Roshambo.result(user, ai);
-
-		if (InputCheck.cont(sc, "\nAnother round? (y/n): ", ""))
-			playRound(user, ai);
-	}
-
-	public static char getChoice() {
-		// loop to get correct RPS choice from user
-		char rpsChoice = ' ';
-		boolean validChoice = false;
-		while (!validChoice) {
-			System.out.print("Rock, paper or scissors? (R/P/S): ");
-			rpsChoice = sc.next().toUpperCase().charAt(0);
-			sc.nextLine(); // garbage
-			if (rpsChoice == 'R' || rpsChoice == 'P' || rpsChoice == 'S')
-				validChoice = true;
-			else
-				System.out.println("Invalid choice.");
-		}
-		return rpsChoice;
 	}
 }

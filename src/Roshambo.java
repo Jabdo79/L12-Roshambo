@@ -1,16 +1,26 @@
+import java.util.Scanner;
 
 public enum Roshambo {
-	Rock (1, 'R'), Paper (2, 'P'), Scissors (3, 'S');
+	Rock, Paper, Scissors;
 	
-	private final int rpsValue;
-	private final char rpsChar;
-	
-	Roshambo(int rpsValue, char rpsChar){
-		this.rpsValue = rpsValue;
-		this.rpsChar = rpsChar;
+	public static void playRound(Scanner sc, RpsUser user, Player ai) {
+
+		// store user and ai RPS choice
+		user.generateRoshambo(getChoice(sc));
+		ai.generateRoshambo(' ');
+
+		// prints player names and their RPS choices
+		System.out.println("\n" + user.getName() + ": " + user.getRps());
+		System.out.println(ai.getName() + ": " + ai.getRps());
+
+		// call method to determine winner, loser or draw
+		Roshambo.result(user, ai);
+
+		if (InputCheck.cont(sc, "\nAnother round? (y/n): ", ""))
+			playRound(sc, user, ai);
 	}
 	
-	public static void result(RpsUser user, Player ai) {
+	private static void result(RpsUser user, Player ai) {
 		//print the result that coincides with the user and ai choices, keep track of win draw loss for user
 		switch (user.getRps()) {
 		case Rock:
@@ -51,17 +61,20 @@ public enum Roshambo {
 			break;
 		}
 	}
-	
-	/*public String toString(Roshambo e){
-		switch(e){
-		case Rock:
-			return "Rock";
-		case Paper:
-			return "Paper";
-		case Scissors:
-			return "Scissors";
-		default:
-			return "Invalid choice";
+
+	private static char getChoice(Scanner sc) {
+		// loop to get correct RPS choice from user
+		char rpsChoice = ' ';
+		boolean validChoice = false;
+		while (!validChoice) {
+			System.out.print("Rock, paper or scissors? (R/P/S): ");
+			rpsChoice = sc.next().toUpperCase().charAt(0);
+			sc.nextLine(); // garbage
+			if (rpsChoice == 'R' || rpsChoice == 'P' || rpsChoice == 'S')
+				validChoice = true;
+			else
+				System.out.println("Invalid choice.");
 		}
-	}*/
+		return rpsChoice;
+	}
 }
