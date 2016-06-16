@@ -1,5 +1,8 @@
 /*Jonathan Abdo
  * Create a rock paper scissors app
+ * allow user to enter a name, choose an opponent, and 
+ * keep track of wins/draws/losses for each round
+ * 
  * (uses InputCheck.java https://github.com/Jabdo79/InputCheck)
  */
 import java.util.Scanner;
