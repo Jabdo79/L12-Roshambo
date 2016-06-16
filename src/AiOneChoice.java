@@ -5,6 +5,6 @@ public class AiOneChoice extends Player {
 	}
 	
 	Roshambo generateRoshambo(char choice) {
-		return Roshambo.Rock;
+		return Roshambo.ROCK;
 	}
 }

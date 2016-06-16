@@ -9,11 +9,11 @@ public class AiRandom extends Player {
 		int roll = (int)(Math.random()*3)+1;
 		switch(roll){
 		case 1:
-			return Roshambo.Rock;
+			return Roshambo.ROCK;
 		case 2:
-			return Roshambo.Paper;
+			return Roshambo.PAPER;
 		case 3:
-			return Roshambo.Scissors;
+			return Roshambo.SCISSORS;
 		default:
 			return null;
 		}

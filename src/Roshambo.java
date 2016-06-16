@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public enum Roshambo {
-	Rock, Paper, Scissors;
+	ROCK, PAPER, SCISSORS;
 	
 	public static void playRound(Scanner sc, RpsUser user, Player ai) {
 
@@ -23,38 +23,38 @@ public enum Roshambo {
 	private static void result(RpsUser user, Player ai) {
 		//print the result that coincides with the user and ai choices, keep track of win draw loss for user
 		switch (user.getRps()) {
-		case Rock:
-			if (ai.getRps() == Rock) {
+		case ROCK:
+			if (ai.getRps() == ROCK) {
 				user.draw();
 				System.out.println("Draw!");
-			} else if (ai.getRps() == Paper) {
+			} else if (ai.getRps() == PAPER) {
 				user.loss();
 				System.out.println(ai.getName() + " wins!");
-			} else if (ai.getRps() == Scissors) {
+			} else if (ai.getRps() == SCISSORS) {
 				user.win();
 				System.out.println(user.getName() + " wins!");
 			}
 			break;
-		case Paper:
-			if (ai.getRps() == Rock) {
+		case PAPER:
+			if (ai.getRps() == ROCK) {
 				user.win();
 				System.out.println(user.getName() + " wins!");
-			} else if (ai.getRps() == Paper) {
+			} else if (ai.getRps() == PAPER) {
 				user.draw();
 				System.out.println("Draw!");
-			} else if (ai.getRps() == Scissors) {
+			} else if (ai.getRps() == SCISSORS) {
 				user.loss();
 				System.out.println(ai.getName() + " wins!");
 			}
 			break;
-		case Scissors:
-			if (ai.getRps() == Rock) {
+		case SCISSORS:
+			if (ai.getRps() == ROCK) {
 				user.loss();
 				System.out.println(ai.getName() + " wins!");
-			} else if (ai.getRps() == Paper) {
+			} else if (ai.getRps() == PAPER) {
 				user.win();
 				System.out.println(user.getName() + " wins!");
-			} else if (ai.getRps() == Scissors) {
+			} else if (ai.getRps() == SCISSORS) {
 				user.draw();
 				System.out.println("Draw!");
 			}

@@ -8,11 +8,11 @@ public class RpsUser extends Player {
 	Roshambo generateRoshambo(char choice) {
 		switch(choice){
 		case 'R':
-			return Roshambo.Rock;
+			return Roshambo.ROCK;
 		case 'P':
-			return Roshambo.Paper;
+			return Roshambo.PAPER;
 		case 'S':
-			return Roshambo.Scissors;
+			return Roshambo.SCISSORS;
 		default:
 			return null;
 		}

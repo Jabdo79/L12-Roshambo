@@ -15,7 +15,7 @@ public class RoshamboApp {
 
 			// create players, 1 user, 2 ai
 			RpsUser user = new RpsUser(name);
-			AiOneChoice fred = new AiOneChoice("Fred");
+			AiOneChoice fred = new AiOneChoice("Fred Flintstone");
 			AiRandom rand = new AiRandom("Spock");
 
 			// ask user to choose opponent
