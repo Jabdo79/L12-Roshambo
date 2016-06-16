@@ -1,3 +1,7 @@
+/*Jonathan Abdo
+ * Create a rock paper scissors app
+ * (uses InputCheck.java https://github.com/Jabdo79/InputCheck)
+ */
 import java.util.Scanner;
 
 public class RoshamboApp {
