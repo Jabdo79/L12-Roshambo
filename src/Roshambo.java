@@ -3,11 +3,11 @@ import java.util.Scanner;
 public enum Roshambo {
 	ROCK, PAPER, SCISSORS;
 	
-	public static void playRound(Scanner sc, RpsUser user, Player ai) {
+	public static void playRound(Scanner sc, Player user, Player ai) {
 
 		// store user and ai RPS choice
-		user.setRps(user.generateRoshambo(getChoice(sc)));
-		ai.setRps(ai.generateRoshambo(' '));
+		user.setRps(getChoice(sc));
+		ai.setRps(ai.generateRoshambo());
 
 		// prints player names and their RPS choices
 		System.out.println("\n" + user.getName() + ": " + user.getRps());
@@ -20,7 +20,7 @@ public enum Roshambo {
 			playRound(sc, user, ai);
 	}
 	
-	private static void result(RpsUser user, Player ai) {
+	private static void result(Player user, Player ai) {
 		//print the result that coincides with the user and ai choices, keep track of win draw loss for user
 		switch (user.getRps()) {
 		case ROCK:
@@ -62,7 +62,7 @@ public enum Roshambo {
 		}
 	}
 
-	private static char getChoice(Scanner sc) {
+	private static Roshambo getChoice(Scanner sc) {
 		// loop to get correct RPS choice from user
 		char rpsChoice = ' ';
 		boolean validChoice = false;
@@ -75,6 +75,15 @@ public enum Roshambo {
 			else
 				System.out.println("Invalid choice.");
 		}
-		return rpsChoice;
+		switch(rpsChoice){
+		case 'R':
+			return ROCK;
+		case 'P':
+			return PAPER;
+		case 'S':
+			return SCISSORS;
+		default:
+			return null;
+		}
 	}
 }

@@ -5,7 +5,7 @@ public class AiRandom extends Player {
 		super(name);
 	}
 
-	Roshambo generateRoshambo(char choice) {
+	Roshambo generateRoshambo() {
 		int roll = (int)(Math.random()*3)+1;
 		switch(roll){
 		case 1:

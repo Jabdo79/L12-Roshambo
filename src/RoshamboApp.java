@@ -20,14 +20,15 @@ public class RoshamboApp {
 			System.out.print("\nEnter your name: ");
 			String name = sc.nextLine();
 
-			// create players, 1 user, 2 ai
-			RpsUser user = new RpsUser(name);
-			AiOneChoice fred = new AiOneChoice("Fred Flintstone");
+			// create players, 1 user, 3 ai
+			User user = new User(name);
+			AiScissors edward = new AiScissors("Edward Scissorhands");
+			AiRock fred = new AiRock("Fred Flintstone");
 			AiRandom rand = new AiRandom("Spock");
 
 			// ask user to choose opponent
-			int aiChoice = InputCheck.getInt(sc, "\nOpponents\n1.Fred\n2.Spock\nWho would you like to play against? ",
-					1, 2);
+			int aiChoice = InputCheck.getInt(sc, "\nOpponents\n1.Fred\n2.Spock\n3.Edward\nWho would you like to play against? ",
+					1, 3);
 
 			// play against the ai chosen
 			switch (aiChoice) {
@@ -36,6 +37,9 @@ public class RoshamboApp {
 				break;
 			case 2:
 				Roshambo.playRound(sc, user, rand);
+				break;
+			case 3:
+				Roshambo.playRound(sc, user, edward);
 				break;
 			}
 
