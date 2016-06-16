@@ -4,7 +4,7 @@ public class AiOneChoice extends Player {
 		super(name);
 	}
 	
-	void generateRoshambo(char choice) {
-		setRps(Roshambo.Rock);
+	Roshambo generateRoshambo(char choice) {
+		return Roshambo.Rock;
 	}
 }

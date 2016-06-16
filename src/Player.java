@@ -8,7 +8,7 @@ public abstract class Player {
 		this.name = name;
 	}
 	
-	abstract void generateRoshambo(char choice);
+	abstract Roshambo generateRoshambo(char choice);
 
 	public String getName() {
 		return name;

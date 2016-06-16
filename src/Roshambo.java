@@ -6,8 +6,8 @@ public enum Roshambo {
 	public static void playRound(Scanner sc, RpsUser user, Player ai) {
 
 		// store user and ai RPS choice
-		user.generateRoshambo(getChoice(sc));
-		ai.generateRoshambo(' ');
+		user.setRps(user.generateRoshambo(getChoice(sc)));
+		ai.setRps(ai.generateRoshambo(' '));
 
 		// prints player names and their RPS choices
 		System.out.println("\n" + user.getName() + ": " + user.getRps());

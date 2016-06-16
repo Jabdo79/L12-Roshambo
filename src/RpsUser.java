@@ -5,17 +5,16 @@ public class RpsUser extends Player {
 		super(name);
 	}
 
-	void generateRoshambo(char choice) {
+	Roshambo generateRoshambo(char choice) {
 		switch(choice){
 		case 'R':
-			setRps(Roshambo.Rock);
-			break;
+			return Roshambo.Rock;
 		case 'P':
-			setRps(Roshambo.Paper);
-			break;
+			return Roshambo.Paper;
 		case 'S':
-			setRps(Roshambo.Scissors);
-			break;
+			return Roshambo.Scissors;
+		default:
+			return null;
 		}
 	}
 
